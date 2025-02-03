@@ -75,7 +75,7 @@ class Control extends Application\UI\Control
 	/**
 	 * @param Localization\ITranslator $translator
 	 */
-	public function injectTranslator(Localization\ITranslator $translator = NULL)
+	public function injectTranslator(?Localization\ITranslator $translator = NULL)
 	{
 		$this->translator = $translator;
 	}
@@ -88,7 +88,7 @@ class Control extends Application\UI\Control
 	public function __construct(
 		$templateFile = NULL,
                 $displayRelatedPages = NULL,
-		Nette\ComponentModel\IContainer $parent = NULL, $name = NULL
+		?Nette\ComponentModel\IContainer $parent = NULL, $name = NULL
 	) {
 		if ($templateFile) {
 			$this->setTemplateFile($templateFile);
