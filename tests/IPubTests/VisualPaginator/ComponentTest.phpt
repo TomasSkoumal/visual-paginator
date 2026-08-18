@@ -108,7 +108,7 @@ class ComponentTest extends Tester\TestCase
 	 */
 	protected function createContainer()
 	{
-		$config = new Nette\Configurator();
+		$config = new Nette\Bootstrap\Configurator();
 		$config->setTempDirectory(TEMP_DIR);
 
 		VisualPaginator\DI\VisualPaginatorExtension::register($config);
@@ -169,13 +169,10 @@ class TestPresenter extends UI\Presenter
 
 class RouterFactory
 {
-	/**
-	 * @return \Nette\Application\IRouter
-	 */
-	public static function createRouter()
+	public static function createRouter(): Routers\RouteList
 	{
-		$router = new Routers\  RouteList();
-		$router[] = new Routers\Route('<presenter>/<action>[/<id>]', 'Test:default');
+		$router = new Routers\RouteList();
+		$router->addRoute('<presenter>/<action>[/<id>]', 'Test:default');
 
 		return $router;
 	}

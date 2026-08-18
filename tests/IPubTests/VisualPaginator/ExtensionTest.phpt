@@ -32,7 +32,7 @@ class ExtensionTest extends Tester\TestCase
 	 */
 	protected function createContainer()
 	{
-		$config = new Nette\Configurator();
+		$config = new Nette\Bootstrap\Configurator();
 		$config->setTempDirectory(TEMP_DIR);
 
 		VisualPaginator\DI\VisualPaginatorExtension::register($config);

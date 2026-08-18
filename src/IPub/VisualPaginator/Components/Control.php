@@ -16,6 +16,7 @@ namespace IPub\VisualPaginator\Components;
 
 use Nette;
 use Nette\Application;
+use Nette\Application\Attributes\Persistent;
 use Nette\Localization;
 use Nette\Utils;
 
@@ -35,17 +36,15 @@ use IPub\VisualPaginator\Exceptions;
  */
 class Control extends Application\UI\Control
 {
-	/**
-	 * @persistent int
-	 */
-	public $page = 1;
+	#[Persistent]
+	public int $page = 1;
 
 	/**
 	 * Events
 	 *
 	 * @var array
 	 */
-	public $onShowPage;
+	public $onShowPage = [];
 
 	/**
 	 * @var Utils\Paginator

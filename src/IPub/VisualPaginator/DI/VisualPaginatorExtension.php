@@ -37,7 +37,7 @@ class VisualPaginatorExtension extends DI\CompilerExtension
 			->addTag('cms.components')
 			->getResultDefinition()
 			->setType('IPub\VisualPaginator\Components\Control')
-			->setArguments([new Nette\PhpGenerator\PhpLiteral('$templateFile')])
+			->setArguments([new Nette\PhpGenerator\Literal('$templateFile')])
 			->addTag(DI\Extensions\InjectExtension::TAG_INJECT);
 
 		if ($config['templateFile']) {
@@ -46,12 +46,12 @@ class VisualPaginatorExtension extends DI\CompilerExtension
 	}
 
 	/**
-	 * @param Nette\Configurator $config
+	 * @param Nette\Bootstrap\Configurator $config
 	 * @param string $extensionName
 	 */
-	public static function register(Nette\Configurator $config, $extensionName = 'visualPaginator')
+	public static function register(Nette\Bootstrap\Configurator $config, $extensionName = 'visualPaginator')
 	{
-		$config->onCompile[] = function (Nette\Configurator $config, Nette\DI\Compiler $compiler) use ($extensionName) {
+		$config->onCompile[] = function (Nette\Bootstrap\Configurator $config, Nette\DI\Compiler $compiler) use ($extensionName) {
 			$compiler->addExtension($extensionName, new VisualPaginatorExtension());
 		};
 	}
